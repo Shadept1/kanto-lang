@@ -1,194 +1,96 @@
-# KantoLang
+<img width="6912" height="3456" alt="KANTOLANG" src="https://github.com/user-attachments/assets/ce2d7865-3f10-44a3-b0b5-4356cae90c3b" />
+# ⚡ KantoLang
 
-A statically-typed, indentation-based interpreted programming language implemented in Rust.
+> *Write clean, expressive code with the readability of abbreviated English and the safety & performance spirit of Rust.*
 
-## Features
+[![Status](https://img.shields.io/badge/status-early%20development-orange?style=for-the-badge)]()
+[![Built With](https://img.shields.io/badge/built%20with-Rust-dea584?style=for-the-badge&logo=rust)]()
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)]()
 
-- **Indentation-based syntax** (4 spaces, no tabs)
-- **Static type checking** with type inference
-- **Tree-walk interpreter** with runtime error handling
-- **Built-in functions**: `print`, `str`, `int`, `float`, `range`
-- **Control flow**: `if/else`, `while`, `for`, `break`, `continue`
-- **Functions** with parameters and return types
-- **Arithmetic** with overflow checking
-- **VS Code extension** with syntax highlighting, snippets, and tasks
+---
 
-## Quick Start
+## 🌟 About KantoLang
 
-### Prerequisites
+**KantoLang** is an experimental, modern programming language currently being built **from scratch in Rust**. Its core philosophy is to bridge **human-friendly, concise syntax** (inspired by *abbreviated English* and Python-like clarity) with **strong safety, predictable behavior, and high performance** inspired by Rust.
 
-- Rust 1.70+ (install via [rustup](https://rustup.rs/))
+Whether you are prototyping ideas quickly or building reliable software systems, KantoLang aims to keep code *clean, readable, and intentional* without unnecessary boilerplate.
 
-### Building
+---
 
-```bash
-cargo build --release
-```
+## 🎯 Core Pillars
 
-The binary will be at `target/release/kantolang` (or `target/release/kantolang.exe` on Windows).
+| Pillar | Philosophy | What It Means in Practice |
+| :--- | :--- | :--- |
+| 📖 **Readability** | *Abbreviated English* | Short, intuitive keywords and clean structure that read naturally. |
+| 🛡️ **Safety First** | *Rust-Inspired Discipline* | Clear mutability rules, explicit types, and helpful error messages. |
+| ⚡ **Performance** | *Systems Mindset* | Designed with an efficient execution pipeline built on **Rust**. |
+| 🧩 **Simplicity** | *Low Friction* | Easy to pick up without drowning in cryptic symbols or ceremony. |
 
-### Running a Program
+---
 
-```bash
-# Run a KantoLang file
-kantolang examples/hello.knt
+## ✨ Syntax Preview *(Draft / Work in Progress)*
 
-# Or use the run subcommand
-kantolang run examples/hello.knt
+Here is a glimpse of how **KantoLang** is designed to look as the language evolves:
 
-# Check syntax and types without executing
-kantolang check examples/hello.knt
-```
+```text
+mut count = 0
+mut step = 5
 
-## Language Overview
-
-### Hello World
-
-```kantolang
-print("Hello, World!")
-```
-
-### Variables
-
-```kantolang
-# Immutable (type inferred)
-let x = 42
-
-# Immutable with explicit type
-let y: int = 10
-
-# Mutable
-mut z = 0
-z = z + 1  # OK
-
-# Reassignment only for mut variables
-let a = 1
-a = 2  # Error: cannot assign to immutable variable
-```
-
-### Functions
-
-```kantolang
 def add(a: int, b: int) -> int:
     ret a + b
 
-def greet(name: str) -> unit:
-    print("Hello, " + name)
+count = add(count, step)
 
-# Call functions
-let result = add(2, 3)
-greet("World")
+if count >= 5:
+    print("Ready to go!")
 ```
 
-### Control Flow
+> **Note:** Syntax details are actively evolving as Phase 1 of the interpreter/compiler takes shape.
 
-```kantolang
-# If-else
-if x > 0:
-    print("positive")
-else:
-    print("non-positive")
 
-# While loop
-mut i = 0
-while i < 10:
-    print(i)
-    i = i + 1
+## 🛠️ Project Architecture
 
-# For loop
-for i in range(5):        # 0, 1, 2, 3, 4
-    print(i)
+The implementation in Rust is organized into focused, modular components:
 
-for i in range(2, 5):     # 2, 3, 4
-    print(i)
+| Module | Responsibility |
+| :--- | :--- |
+| `src/token.rs` | Defines token types, keywords, literals, and operators. |
+| `src/lexer.rs` | Scans raw source code into a stream of tokens. |
+| `src/ast.rs` | Represents program structure via an Abstract Syntax Tree. |
+| `src/parser.rs` | Parses tokens into AST nodes and enforces operator precedence. |
+| `src/evaluator.rs` | Executes statements/expressions and manages runtime state/errors. |
+| `src/main.rs` | Entry point for running source files and tests. |
 
-# Break/continue
-while true:
-    if i == 5:
-        break
-    if i % 2 == 0:
-        continue
-    print(i)
-```
+---
 
-### Types
+## 🚀 Getting Started
 
-```kantolang
-# Primitive types
-let i: int = 42
-let f: float = 3.14
-let b: bool = true
-let s: str = "hello"
-let u: unit = ()
+### Prerequisites
 
-# Type conversions (explicit, no implicit conversions)
-let i2 = int(3.14)    # float -> int (truncates)
-let f2 = float(42)    # int -> float
-let s2 = str(42)      # int -> string
-```
+Make sure you have **Rust** (`rustc` and `cargo`) and **Git** installed on your machine.
 
-### Built-in Functions
+### Clone & Run
 
-| Function | Description |
-|----------|-------------|
-| `print(...)` | Print values to stdout (any number of args) |
-| `str(int)` | Convert integer to string |
-| `int(float)` | Convert float to integer (truncates) |
-| `float(int)` | Convert integer to float |
-| `range(stop)` | Create range 0..stop |
-| `range(start, stop)` | Create range start..stop |
-
-## Examples
-
-See the `examples/` directory for more complete programs:
-
-- `hello.knt` - Hello World
-- `factorial.knt` - Recursive factorial
-- `fibonacci.knt` - Iterative Fibonacci
-- `guessing_game.knt` - Number guessing game
-
-Run them with:
 ```bash
-kantolang examples/factorial.knt
+git clone [https://github.com/Shadept1/kanto-lang.git](https://github.com/Shadept1/kanto-lang.git)
+cd kanto-lang
+cargo run
 ```
 
-## VS Code Extension
+### Run Tests
 
-The `editors/vscode/` directory contains a VS Code extension with:
-
-- Syntax highlighting
-- Code snippets (type `def`, `if`, `for`, `let`, etc.)
-- Tasks for Run (Ctrl+F5) and Check
-- Bracket matching and auto-indentation
-
-To install:
-1. Open the `editors/vscode` folder in VS Code
-2. Press F5 to launch Extension Development Host
-3. Open a `.knt` file
-
-Or package and install:
 ```bash
-cd editors/vscode
-npm install -g vsce
-vsce package
-code --install-extension kantolang-0.1.0.vsix
+cargo test
 ```
 
-## Architecture
+---
 
-KantoLang uses a multi-pass compilation pipeline:
+## 🤝 Contributing & Feedback
 
-```
-Source → Lexer → Parser → Type Checker → Evaluator
-```
+KantoLang is in its early stages and growing step by step. Ideas, syntax suggestions, bug reports, and experiments are all welcome as the language takes shape!
 
-- **Lexer**: Indentation-aware tokenization with INDENT/DEDENT
-- **Parser**: Pratt parser (precedence climbing) for expressions
-- **Type Checker**: Two-pass (signatures first, then bodies) with lexical scoping
-- **Evaluator**: Tree-walk interpreter with checked arithmetic
+---
 
-See `docs/architecture.md` for details.
+## 📄 License
 
-## License
-
-MIT License - see LICENSE file for details.
+Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for more information.
