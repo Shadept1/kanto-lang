@@ -1,0 +1,11 @@
+# Factorial function using recursion
+def fact(n: int) -> int:
+    if n <= 1:
+        ret 1
+    ret n * fact(n - 1)
+
+print("Factorial of 5:")
+print(fact(5))
+
+print("Factorial of 10:")
+print(fact(10))

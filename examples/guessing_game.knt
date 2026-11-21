@@ -1,0 +1,18 @@
+# Number guessing game
+print("Guess the number between 1 and 100!")
+mut secret = 42  # In a real game, this would be random
+mut guess = 0
+mut attempts = 0
+
+while guess != secret:
+    print("Enter your guess:")
+    # Note: In v0.1, we can't read input, so we'll simulate
+    guess = guess + 1
+    attempts = attempts + 1
+    if guess < secret:
+        print("Too low!")
+    else:
+        if guess > secret:
+            print("Too high!")
+
+print("Congratulations! You found it in " + str(attempts) + " attempts!")

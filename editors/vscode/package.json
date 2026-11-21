@@ -1,0 +1,137 @@
+{
+  "name": "kantolang",
+  "displayName": "KantoLang",
+  "description": "Syntax highlighting, snippets, and language support for KantoLang",
+  "version": "0.1.0",
+  "publisher": "kantolang",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "icon": "images/icon.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "kantolang",
+        "aliases": ["KantoLang", "kantolang"],
+        "extensions": [".knt"],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./images/file-icon-light.svg",
+          "dark": "./images/file-icon-dark.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "kantolang",
+        "scopeName": "source.kantolang",
+        "path": "./syntaxes/kantolang.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "kantolang",
+        "path": "./snippets/kantolang.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "kantolang.runCurrentFile",
+        "title": "KantoLang: Run Current File",
+        "category": "KantoLang",
+        "icon": "$(play)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "kantolang.runCurrentFile",
+          "when": "resourceLangId == kantolang",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "kantolang.runCurrentFile",
+          "when": "resourceLangId == kantolang",
+          "group": "navigation"
+        }
+      ]
+    },
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "kanto: Run",
+        "command": "kanto",
+        "args": ["${file}"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": {
+          "owner": "kantolang",
+          "fileLocation": ["relative", "${workspaceFolder}"],
+          "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+          }
+        },
+        "options": {
+          "cwd": "${fileDirname}"
+        }
+      },
+      {
+        "type": "shell",
+        "label": "kanto: Check",
+        "command": "kanto",
+        "args": ["check", "${file}"],
+        "group": "test",
+        "problemMatcher": {
+          "owner": "kantolang",
+          "fileLocation": ["relative", "${workspaceFolder}"],
+          "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+          }
+        },
+        "options": {
+          "cwd": "${fileDirname}"
+        }
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "kantolang.runCurrentFile",
+        "key": "ctrl+f5",
+        "mac": "cmd+f5",
+        "when": "editorTextFocus && resourceLangId == kantolang"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.15.0"
+  },
+  "activationEvents": [
+    "onLanguage:kantolang"
+  ],
+  "main": "./out/extension.js"
+}

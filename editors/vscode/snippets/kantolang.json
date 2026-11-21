@@ -1,0 +1,151 @@
+{
+  "Function": {
+    "prefix": "def",
+    "body": [
+      "def ${1:name}(${2:param}: ${3:type}) -> ${4:return_type}:",
+      "    ${0:ret $2}"
+    ],
+    "description": "Function definition"
+  },
+  "Function with multiple params": {
+    "prefix": "defn",
+    "body": [
+      "def ${1:name}(${2:param1}: ${3:type1}, ${4:param2}: ${5:type2}) -> ${6:return_type}:",
+      "    ${0:ret $2 + $4}"
+    ],
+    "description": "Function with two parameters"
+  },
+  "If statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition}:",
+      "    ${2:# then branch}",
+      "else:",
+      "    ${3:# else branch}"
+    ],
+    "description": "If-else statement"
+  },
+  "If statement (no else)": {
+    "prefix": "ifi",
+    "body": [
+      "if ${1:condition}:",
+      "    ${2:# then branch}"
+    ],
+    "description": "If statement without else"
+  },
+  "While loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition}:",
+      "    ${2:# body}"
+    ],
+    "description": "While loop"
+  },
+  "For loop (range)": {
+    "prefix": "for",
+    "body": [
+      "for ${1:i} in range(${2:stop}):",
+      "    ${3:# body}"
+    ],
+    "description": "For loop with range(stop)"
+  },
+  "For loop (range with start)": {
+    "prefix": "forr",
+    "body": [
+      "for ${1:i} in range(${2:start}, ${3:stop}):",
+      "    ${4:# body}"
+    ],
+    "description": "For loop with range(start, stop)"
+  },
+  "Let binding": {
+    "prefix": "let",
+    "body": [
+      "let ${1:name} = ${2:value}"
+    ],
+    "description": "Immutable variable binding"
+  },
+  "Let binding with type": {
+    "prefix": "lett",
+    "body": [
+      "let ${1:name}: ${2:type} = ${3:value}"
+    ],
+    "description": "Immutable variable with type annotation"
+  },
+  "Mutable binding": {
+    "prefix": "mut",
+    "body": [
+      "mut ${1:name} = ${2:value}"
+    ],
+    "description": "Mutable variable binding"
+  },
+  "Mutable binding with type": {
+    "prefix": "mutt",
+    "body": [
+      "mut ${1:name}: ${2:type} = ${3:value}"
+    ],
+    "description": "Mutable variable with type annotation"
+  },
+  "Print": {
+    "prefix": "print",
+    "body": [
+      "print(${1:value})"
+    ],
+    "description": "Print to stdout"
+  },
+  "Return": {
+    "prefix": "ret",
+    "body": [
+      "ret ${1:value}"
+    ],
+    "description": "Return statement"
+  },
+  "Return unit": {
+    "prefix": "retu",
+    "body": [
+      "ret"
+    ],
+    "description": "Return unit (no value)"
+  },
+  "Break": {
+    "prefix": "break",
+    "body": [
+      "break"
+    ],
+    "description": "Break out of loop"
+  },
+  "Continue": {
+    "prefix": "continue",
+    "body": [
+      "continue"
+    ],
+    "description": "Continue to next iteration"
+  },
+  "String concatenation": {
+    "prefix": "strcat",
+    "body": [
+      "\"${1:hello}\" + \"${2:world}\""
+    ],
+    "description": "String concatenation"
+  },
+  "Type conversion - str": {
+    "prefix": "str",
+    "body": [
+      "str(${1:value})"
+    ],
+    "description": "Convert int to string"
+  },
+  "Type conversion - int": {
+    "prefix": "int",
+    "body": [
+      "int(${1:value})"
+    ],
+    "description": "Convert float to int"
+  },
+  "Type conversion - float": {
+    "prefix": "float",
+    "body": [
+      "float(${1:value})"
+    ],
+    "description": "Convert int to float"
+  }
+}

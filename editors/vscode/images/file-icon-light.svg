@@ -1,0 +1,10 @@
+<!--
+  KantoLang file icon for LIGHT themes
+  Replace this file with your actual logo.
+  Recommended size: 16x16, 32x32, or scalable SVG
+  The icon should be readable on light backgrounds.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <rect width="16" height="16" rx="2" fill="#2d2d2d"/>
+  <text x="8" y="12" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">K</text>
+</svg>
