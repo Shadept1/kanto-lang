@@ -1,3 +1,4 @@
+<img width="6912" height="3456" alt="KANTOLANG" src="https://github.com/user-attachments/assets/a957e496-fb29-4fb1-af75-1106ea1b2a6e" />
 # ⚡ KantoLang
 
 > *Write clean, expressive code with the readability of abbreviated English and the safety & performance spirit of Rust.*
