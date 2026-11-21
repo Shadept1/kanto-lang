@@ -46,19 +46,6 @@ if count >= 5:
 
 > **Note:** Syntax details are actively evolving as Phase 1 of the interpreter/compiler takes shape.
 
----
-
-## 🗺️ Roadmap
-
-- [x] **Repository & Tooling Setup** — Project initialized with Cargo, VS Code (rust-analyzer), and Git.
-- [ ] **Phase 1: Core Pipeline (v0.1)** — Lexer, Parser, AST, and basic expression/print evaluator.
-- [ ] **Phase 2: Variables & Mutability** — Scopes, variables, and explicit `mut` rules.
-- [ ] **Phase 3: Control Flow** — Conditionals (`if`/`else`) and loops.
-- [ ] **Phase 4: Functions & Return Values** — Parameters, local scopes, and `ret`.
-- [ ] **Phase 5: Type Checking & Diagnostics** — Static type safety and clear, friendly error reporting.
-- [ ] **Phase 6: Standard Library & Tooling** — Core modules, tests, and documentation.
-
----
 
 ## 🛠️ Project Architecture
 
@@ -84,8 +71,8 @@ Make sure you have **Rust** (`rustc` and `cargo`) and **Git** installed on your 
 ### Clone & Run
 
 ```bash
-git clone [https://github.com/](https://github.com/)<your-username>/KantoLang.git
-cd KantoLang
+git clone [https://github.com/Shadept1/kanto-lang.git](https://github.com/Shadept1/kanto-lang.git)
+cd kanto-lang
 cargo run
 ```
 
